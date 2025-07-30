@@ -1,7 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
-import { Progress } from '@/components/ui/progress';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Code, Database, Brain, Cloud, GitBranch, BarChart } from 'lucide-react';
+import { Badge } from '@/components/ui/badge';
 
 const Skills = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -10,71 +9,80 @@ const Skills = () => {
   const skillCategories = [
     {
       title: "Programming Languages",
-      icon: <Code className="w-6 h-6" />,
+      icon: "💻",
       skills: [
-        { name: "Python", level: 95 },
-        { name: "R", level: 85 },
-        { name: "SQL", level: 90 },
-        { name: "JavaScript", level: 75 },
-        { name: "Scala", level: 70 },
+        { name: "Python", symbol: "🐍", expertise: "Expert" },
+        { name: "R", symbol: "📊", expertise: "Advanced" },
+        { name: "SQL", symbol: "🗃️", expertise: "Expert" },
+        { name: "JavaScript", symbol: "⚡", expertise: "Intermediate" },
+        { name: "Scala", symbol: "🔶", expertise: "Intermediate" },
       ]
     },
     {
       title: "Machine Learning",
-      icon: <Brain className="w-6 h-6" />,
+      icon: "🧠",
       skills: [
-        { name: "TensorFlow", level: 90 },
-        { name: "PyTorch", level: 85 },
-        { name: "Scikit-learn", level: 95 },
-        { name: "Keras", level: 88 },
-        { name: "XGBoost", level: 82 },
+        { name: "TensorFlow", symbol: "🔥", expertise: "Expert" },
+        { name: "PyTorch", symbol: "⚡", expertise: "Advanced" },
+        { name: "Scikit-learn", symbol: "🔬", expertise: "Expert" },
+        { name: "Keras", symbol: "🎯", expertise: "Advanced" },
+        { name: "XGBoost", symbol: "🚀", expertise: "Advanced" },
       ]
     },
     {
       title: "Data Engineering",
-      icon: <Database className="w-6 h-6" />,
+      icon: "⚙️",
       skills: [
-        { name: "Apache Spark", level: 85 },
-        { name: "Kafka", level: 80 },
-        { name: "Airflow", level: 75 },
-        { name: "MongoDB", level: 85 },
-        { name: "PostgreSQL", level: 90 },
+        { name: "Apache Spark", symbol: "⚡", expertise: "Advanced" },
+        { name: "Kafka", symbol: "🌊", expertise: "Advanced" },
+        { name: "Airflow", symbol: "🌪️", expertise: "Intermediate" },
+        { name: "MongoDB", symbol: "🍃", expertise: "Advanced" },
+        { name: "PostgreSQL", symbol: "🐘", expertise: "Expert" },
       ]
     },
     {
       title: "Cloud & DevOps",
-      icon: <Cloud className="w-6 h-6" />,
+      icon: "☁️",
       skills: [
-        { name: "AWS", level: 85 },
-        { name: "Docker", level: 88 },
-        { name: "Kubernetes", level: 75 },
-        { name: "Terraform", level: 70 },
-        { name: "CI/CD", level: 80 },
+        { name: "AWS", symbol: "🌩️", expertise: "Advanced" },
+        { name: "Docker", symbol: "🐳", expertise: "Advanced" },
+        { name: "Kubernetes", symbol: "⚙️", expertise: "Intermediate" },
+        { name: "Terraform", symbol: "🏗️", expertise: "Intermediate" },
+        { name: "CI/CD", symbol: "🔄", expertise: "Advanced" },
       ]
     },
     {
       title: "Data Visualization",
-      icon: <BarChart className="w-6 h-6" />,
+      icon: "📈",
       skills: [
-        { name: "Matplotlib", level: 90 },
-        { name: "Plotly", level: 88 },
-        { name: "D3.js", level: 75 },
-        { name: "Tableau", level: 80 },
-        { name: "Power BI", level: 75 },
+        { name: "Matplotlib", symbol: "📊", expertise: "Expert" },
+        { name: "Plotly", symbol: "📉", expertise: "Advanced" },
+        { name: "D3.js", symbol: "🎨", expertise: "Intermediate" },
+        { name: "Tableau", symbol: "📋", expertise: "Advanced" },
+        { name: "Power BI", symbol: "⚡", expertise: "Intermediate" },
       ]
     },
     {
       title: "Tools & Frameworks",
-      icon: <GitBranch className="w-6 h-6" />,
+      icon: "🛠️",
       skills: [
-        { name: "Git", level: 95 },
-        { name: "Jupyter", level: 90 },
-        { name: "FastAPI", level: 85 },
-        { name: "Flask", level: 88 },
-        { name: "Streamlit", level: 82 },
+        { name: "Git", symbol: "🌲", expertise: "Expert" },
+        { name: "Jupyter", symbol: "📓", expertise: "Expert" },
+        { name: "FastAPI", symbol: "🚀", expertise: "Advanced" },
+        { name: "Flask", symbol: "🌶️", expertise: "Advanced" },
+        { name: "Streamlit", symbol: "🎯", expertise: "Advanced" },
       ]
     }
   ];
+
+  const getExpertiseColor = (expertise: string) => {
+    switch (expertise) {
+      case "Expert": return "bg-primary/10 text-primary border-primary/30";
+      case "Advanced": return "bg-secondary/10 text-secondary border-secondary/30";
+      case "Intermediate": return "bg-accent/10 text-accent-foreground border-border";
+      default: return "bg-muted/10 text-muted-foreground border-border";
+    }
+  };
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -110,11 +118,16 @@ const Skills = () => {
           {skillCategories.map((category, categoryIndex) => (
             <Card
               key={categoryIndex}
-              className="bg-gradient-card border-border hover:border-primary transition-all duration-300 group"
+              className={`bg-gradient-card border-border hover:border-primary transition-all duration-300 group ${
+                isVisible ? 'animate-bounce-in' : 'opacity-0'
+              }`}
+              style={{
+                animationDelay: `${categoryIndex * 0.1}s`
+              }}
             >
               <CardHeader>
                 <CardTitle className="flex items-center space-x-3 text-lg font-semibold">
-                  <div className="p-2 rounded-lg bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300">
+                  <div className="text-3xl group-hover:scale-110 transition-transform duration-300">
                     {category.icon}
                   </div>
                   <span className="group-hover:text-primary transition-colors duration-300">
@@ -123,24 +136,26 @@ const Skills = () => {
                 </CardTitle>
               </CardHeader>
               
-              <CardContent className="space-y-4">
+              <CardContent className="space-y-3">
                 {category.skills.map((skill, skillIndex) => (
-                  <div key={skillIndex} className="space-y-2">
-                    <div className="flex justify-between items-center">
-                      <span className="text-sm font-medium text-foreground">
+                  <div
+                    key={skillIndex}
+                    className="flex items-center justify-between p-3 rounded-lg bg-muted/5 hover:bg-muted/10 transition-all duration-300 group/skill"
+                  >
+                    <div className="flex items-center space-x-3">
+                      <span className="text-xl group-hover/skill:scale-125 transition-transform duration-300">
+                        {skill.symbol}
+                      </span>
+                      <span className="font-medium text-foreground">
                         {skill.name}
                       </span>
-                      <span className="text-sm text-muted-foreground">
-                        {skill.level}%
-                      </span>
                     </div>
-                    <Progress
-                      value={isVisible ? skill.level : 0}
-                      className="h-2 bg-accent"
-                      style={{
-                        transition: `all ${0.5 + skillIndex * 0.1}s ease-out`
-                      }}
-                    />
+                    <Badge 
+                      variant="outline"
+                      className={`${getExpertiseColor(skill.expertise)} transition-all duration-300`}
+                    >
+                      {skill.expertise}
+                    </Badge>
                   </div>
                 ))}
               </CardContent>
@@ -148,17 +163,20 @@ const Skills = () => {
           ))}
         </div>
 
-        {/* Interactive Skill Radar Chart Preview */}
-        <div className="mt-16 text-center animate-fade-up">
-          <div className="inline-block p-8 rounded-2xl bg-gradient-card border border-border hover:border-primary transition-all duration-300 group">
-            <h3 className="text-xl font-semibold mb-4 group-hover:text-primary transition-colors duration-300">
-              💡 Interactive Skill Visualization
-            </h3>
-            <p className="text-muted-foreground mb-4">
-              Hover over the skill cards above to see detailed proficiency levels.
-            </p>
-            <div className="text-sm text-primary">
-              Click here for an interactive radar chart view →
+        {/* Legend */}
+        <div className="mt-16 flex justify-center">
+          <div className="flex flex-wrap gap-4 p-6 rounded-2xl bg-gradient-card border border-border">
+            <div className="flex items-center space-x-2">
+              <div className="w-3 h-3 rounded-full bg-primary"></div>
+              <span className="text-sm text-muted-foreground">Expert</span>
+            </div>
+            <div className="flex items-center space-x-2">
+              <div className="w-3 h-3 rounded-full bg-secondary"></div>
+              <span className="text-sm text-muted-foreground">Advanced</span>
+            </div>
+            <div className="flex items-center space-x-2">
+              <div className="w-3 h-3 rounded-full bg-accent"></div>
+              <span className="text-sm text-muted-foreground">Intermediate</span>
             </div>
           </div>
         </div>

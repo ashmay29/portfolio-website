@@ -10,7 +10,6 @@ const Experience = () => {
   const experiences = [
     {
       id: 1,
-      type: "work",
       title: "Data Science Intern",
       company: "TechCorp Analytics",
       location: "San Francisco, CA",
@@ -26,23 +25,6 @@ const Experience = () => {
     },
     {
       id: 2,
-      type: "education",
-      title: "M.S. Data Science",
-      company: "Stanford University",
-      location: "Stanford, CA",
-      period: "Sep 2022 - Jun 2024",
-      description: "Focused on machine learning, deep learning, and statistical modeling. Completed capstone project on natural language processing for financial sentiment analysis.",
-      achievements: [
-        "GPA: 3.9/4.0",
-        "Research Assistant in ML Lab",
-        "Published 2 conference papers"
-      ],
-      technologies: ["Research", "Machine Learning", "Statistics", "NLP"],
-      icon: <Award className="w-5 h-5" />
-    },
-    {
-      id: 3,
-      type: "work",
       title: "Machine Learning Engineer",
       company: "DataFlow Solutions",
       location: "Remote",
@@ -55,22 +37,6 @@ const Experience = () => {
       ],
       technologies: ["Python", "Spark", "Kubernetes", "MLOps"],
       icon: <TrendingUp className="w-5 h-5" />
-    },
-    {
-      id: 4,
-      type: "education",
-      title: "B.S. Computer Science",
-      company: "UC Berkeley",
-      location: "Berkeley, CA",
-      period: "Sep 2018 - May 2022",
-      description: "Specialized in artificial intelligence and data structures. Active member of the Data Science Student Society and Machine Learning Research Group.",
-      achievements: [
-        "Summa Cum Laude",
-        "Dean's List for 6 semesters",
-        "Winner of campus hackathon"
-      ],
-      technologies: ["Algorithms", "Data Structures", "AI", "Software Engineering"],
-      icon: <Award className="w-5 h-5" />
     }
   ];
 
@@ -98,11 +64,10 @@ const Experience = () => {
       <div className="container mx-auto px-6">
         <div className="text-center mb-16 animate-fade-up">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            Professional <span className="text-gradient">Journey</span>
+            Professional <span className="text-gradient">Experience</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            A timeline of my educational milestones and professional experiences 
-            in data science and machine learning.
+            My professional journey and work experience in data science and machine learning.
           </p>
         </div>
 
@@ -134,20 +99,14 @@ const Experience = () => {
                   {/* Header */}
                   <div className="flex items-start justify-between mb-4">
                     <div className="flex items-center space-x-3">
-                      <div className={`p-2 rounded-lg transition-all duration-300 ${
-                        exp.type === 'work' 
-                          ? 'bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground' 
-                          : 'bg-secondary/10 text-secondary group-hover:bg-secondary group-hover:text-secondary-foreground'
-                      }`}>
+                      <div className="p-2 rounded-lg bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300">
                         {exp.icon}
                       </div>
                       <Badge 
                         variant="secondary" 
-                        className={`${
-                          exp.type === 'work' ? 'bg-primary/10 text-primary' : 'bg-secondary/10 text-secondary'
-                        }`}
+                        className="bg-primary/10 text-primary border-primary/30"
                       >
-                        {exp.type === 'work' ? 'Experience' : 'Education'}
+                        Experience
                       </Badge>
                     </div>
                   </div>

@@ -4,16 +4,17 @@ import Hero from './sections/Hero';
 import Projects from './sections/Projects';
 import Skills from './sections/Skills';
 import Experience from './sections/Experience';
+import Education from './sections/Education';
 import About from './sections/About';
 import Contact from './sections/Contact';
-import ParticleBackground from './effects/ParticleBackground';
+
 
 const Portfolio = () => {
   const [activeSection, setActiveSection] = useState('hero');
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['hero', 'projects', 'skills', 'experience', 'about', 'contact'];
+      const sections = ['hero', 'projects', 'skills', 'experience', 'education', 'about', 'contact'];
       const scrollPosition = window.scrollY + 100;
 
       for (const section of sections) {
@@ -34,7 +35,6 @@ const Portfolio = () => {
 
   return (
     <div className="min-h-screen bg-background text-foreground relative overflow-x-hidden">
-      <ParticleBackground />
       <Header activeSection={activeSection} />
       
       <main>
@@ -42,6 +42,7 @@ const Portfolio = () => {
         <Projects />
         <Skills />
         <Experience />
+        <Education />
         <About />
         <Contact />
       </main>
