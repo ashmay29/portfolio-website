@@ -1,0 +1,52 @@
+import { useEffect, useState } from 'react';
+import Header from './sections/Header';
+import Hero from './sections/Hero';
+import Projects from './sections/Projects';
+import Skills from './sections/Skills';
+import Experience from './sections/Experience';
+import About from './sections/About';
+import Contact from './sections/Contact';
+import ParticleBackground from './effects/ParticleBackground';
+
+const Portfolio = () => {
+  const [activeSection, setActiveSection] = useState('hero');
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = ['hero', 'projects', 'skills', 'experience', 'about', 'contact'];
+      const scrollPosition = window.scrollY + 100;
+
+      for (const section of sections) {
+        const element = document.getElementById(section);
+        if (element) {
+          const { offsetTop, offsetHeight } = element;
+          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
+            setActiveSection(section);
+            break;
+          }
+        }
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  return (
+    <div className="min-h-screen bg-background text-foreground relative overflow-x-hidden">
+      <ParticleBackground />
+      <Header activeSection={activeSection} />
+      
+      <main>
+        <Hero />
+        <Projects />
+        <Skills />
+        <Experience />
+        <About />
+        <Contact />
+      </main>
+    </div>
+  );
+};
+
+export default Portfolio;
