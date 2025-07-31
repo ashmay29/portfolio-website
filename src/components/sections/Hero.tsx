@@ -62,7 +62,7 @@ const Hero = () => {
             <Button 
               onClick={scrollToProjects}
               size="lg"
-              className="group bg-primary hover:bg-primary-glow text-primary-foreground px-8 py-3 text-lg font-semibold transition-all duration-300 hover:scale-105"
+              className="group bg-primary hover:bg-primary-glow text-primary-foreground px-8 py-3 text-lg font-semibold glow transition-all duration-300 hover:scale-105"
             >
               View My Work
               <ArrowDown className="ml-2 w-5 h-5 group-hover:animate-bounce" />
@@ -83,7 +83,7 @@ const Hero = () => {
               href="https://github.com" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="p-3 rounded-full bg-accent hover:bg-primary hover:text-primary-foreground transition-all duration-300 hover:scale-110"
+              className="p-3 rounded-full bg-accent hover:bg-primary hover:text-primary-foreground transition-all duration-300 hover:scale-110 glow"
             >
               <Github className="w-6 h-6" />
             </a>
@@ -91,13 +91,13 @@ const Hero = () => {
               href="https://linkedin.com" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="p-3 rounded-full bg-accent hover:bg-primary hover:text-primary-foreground transition-all duration-300 hover:scale-110"
+              className="p-3 rounded-full bg-accent hover:bg-primary hover:text-primary-foreground transition-all duration-300 hover:scale-110 glow"
             >
               <Linkedin className="w-6 h-6" />
             </a>
             <a 
               href="mailto:alex@example.com"
-              className="p-3 rounded-full bg-accent hover:bg-primary hover:text-primary-foreground transition-all duration-300 hover:scale-110"
+              className="p-3 rounded-full bg-accent hover:bg-primary hover:text-primary-foreground transition-all duration-300 hover:scale-110 glow"
             >
               <Mail className="w-6 h-6" />
             </a>
