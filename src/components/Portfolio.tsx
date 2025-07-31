@@ -7,6 +7,7 @@ import Experience from './sections/Experience';
 import Education from './sections/Education';
 import About from './sections/About';
 import Contact from './sections/Contact';
+import DynamicGradient from './effects/DynamicGradient';
 
 
 const Portfolio = () => {
@@ -35,10 +36,8 @@ const Portfolio = () => {
 
   return (
     <div className="min-h-screen bg-background text-foreground relative overflow-x-hidden">
-      {/* Blue-teal gradient backdrop like reference image */}
-      <div className="fixed inset-0 bg-gradient-backdrop" />
-      {/* Subtle powder gradient overlay */}
-      <div className="fixed inset-0 bg-gradient-powder opacity-30" />
+      {/* Dynamic moving gradient backdrop */}
+      <DynamicGradient />
       
       <Header activeSection={activeSection} />
       
