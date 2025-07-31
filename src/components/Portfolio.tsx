@@ -35,9 +35,10 @@ const Portfolio = () => {
 
   return (
     <div className="min-h-screen bg-background text-foreground relative overflow-x-hidden">
-      {/* Powdered gradient background strokes */}
-      <div className="fixed inset-0 bg-gradient-powder opacity-60" />
-      <div className="fixed inset-0 bg-gradient-strokes opacity-40" />
+      {/* Blue-teal gradient backdrop like reference image */}
+      <div className="fixed inset-0 bg-gradient-backdrop" />
+      {/* Subtle powder gradient overlay */}
+      <div className="fixed inset-0 bg-gradient-powder opacity-30" />
       
       <Header activeSection={activeSection} />
       
