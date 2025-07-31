@@ -51,13 +51,6 @@ const Skills = () => {
 
   return (
     <section ref={sectionRef} id="skills" className="py-20 relative">
-      {/* Gradient accent background */}
-      <div className="absolute inset-0 bg-gradient-accent"></div>
-      <div 
-        className="absolute inset-0 bg-gradient-dots opacity-40" 
-        style={{ backgroundSize: '20px 20px' }}
-      ></div>
-      
       <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-16 animate-fade-up">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
@@ -69,36 +62,32 @@ const Skills = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {skillCategories.map((category, categoryIndex) => (
-            <Card
+            <div
               key={categoryIndex}
-              className={`bg-card/80 backdrop-blur border-border/50 hover:border-primary/30 transition-all duration-300 ${
-                isVisible ? 'animate-bounce-in' : 'opacity-0'
-              }`}
+              className={`group ${isVisible ? 'animate-bounce-in' : 'opacity-0'}`}
               style={{
                 animationDelay: `${categoryIndex * 0.1}s`
               }}
             >
-              <CardHeader className="pb-4">
-                <CardTitle className="text-lg font-semibold text-foreground">
+              <div className="text-center mb-6">
+                <h3 className="text-xl font-semibold text-foreground mb-4 group-hover:text-primary transition-colors duration-200">
                   {category.title}
-                </CardTitle>
-              </CardHeader>
+                </h3>
+              </div>
               
-              <CardContent>
-                <div className="flex flex-wrap gap-2">
-                  {category.skills.map((skill, skillIndex) => (
-                    <span
-                      key={skillIndex}
-                      className="px-3 py-1 text-sm bg-muted/20 text-muted-foreground rounded-md border border-border/50 hover:border-primary/30 hover:text-foreground transition-all duration-200"
-                    >
-                      {skill}
-                    </span>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
+              <div className="flex flex-wrap justify-center gap-3">
+                {category.skills.map((skill, skillIndex) => (
+                  <span
+                    key={skillIndex}
+                    className="px-4 py-2 text-sm bg-card/40 backdrop-blur text-muted-foreground rounded-full border border-border/30 hover:border-primary/50 hover:text-primary hover:bg-primary/5 transition-all duration-300 cursor-default"
+                  >
+                    {skill}
+                  </span>
+                ))}
+              </div>
+            </div>
           ))}
         </div>
       </div>

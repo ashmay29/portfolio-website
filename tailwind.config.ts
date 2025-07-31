@@ -34,6 +34,11 @@ export default {
 					foreground: 'hsl(var(--secondary-foreground))',
 					glow: 'hsl(var(--secondary-glow))'
 				},
+				tertiary: {
+					DEFAULT: 'hsl(var(--tertiary))',
+					foreground: 'hsl(var(--tertiary-foreground))',
+					glow: 'hsl(var(--tertiary-glow))'
+				},
 				destructive: {
 					DEFAULT: 'hsl(var(--destructive))',
 					foreground: 'hsl(var(--destructive-foreground))'
@@ -62,7 +67,9 @@ export default {
 				'gradient-card': 'var(--gradient-card)',
 				'gradient-glow': 'var(--gradient-glow)',
 				'gradient-accent': 'var(--gradient-accent)',
-				'gradient-dots': 'var(--gradient-dots)'
+				'gradient-dots': 'var(--gradient-dots)',
+				'gradient-strokes': 'var(--gradient-strokes)',
+				'gradient-powder': 'var(--gradient-powder)'
 			},
 			boxShadow: {
 				'glow': 'var(--shadow-glow)',
