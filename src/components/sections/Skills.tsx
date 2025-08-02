@@ -8,33 +8,27 @@ const Skills = () => {
   const skillCategories = [
     {
       title: "Programming Languages",
-      skills: ["Python", "R", "SQL", "JavaScript", "Scala"],
-      color: "primary"
+      skills: ["Python", "R", "SQL", "JavaScript", "Scala"]
     },
     {
       title: "Machine Learning",
-      skills: ["TensorFlow", "PyTorch", "Scikit-learn", "Keras", "XGBoost"],
-      color: "secondary"
+      skills: ["TensorFlow", "PyTorch", "Scikit-learn", "Keras", "XGBoost"]
     },
     {
       title: "Data Engineering",
-      skills: ["Apache Spark", "Kafka", "Airflow", "MongoDB", "PostgreSQL"],
-      color: "tertiary"
+      skills: ["Apache Spark", "Kafka", "Airflow", "MongoDB", "PostgreSQL"]
     },
     {
       title: "Cloud & DevOps",
-      skills: ["AWS", "Docker", "Kubernetes", "Terraform", "CI/CD"],
-      color: "primary"
+      skills: ["AWS", "Docker", "Kubernetes", "Terraform", "CI/CD"]
     },
     {
       title: "Data Visualization",
-      skills: ["Matplotlib", "Plotly", "D3.js", "Tableau", "Power BI"],
-      color: "secondary"
+      skills: ["Matplotlib", "Plotly", "D3.js", "Tableau", "Power BI"]
     },
     {
       title: "Tools & Frameworks",
-      skills: ["Git", "Jupyter", "FastAPI", "Flask", "Streamlit"],
-      color: "tertiary"
+      skills: ["Git", "Jupyter", "FastAPI", "Flask", "Streamlit"]
     }
   ];
 
@@ -72,14 +66,16 @@ const Skills = () => {
           {skillCategories.map((category, categoryIndex) => (
             <Card
               key={categoryIndex}
-              className={`bg-gradient-card border-border hover:border-${category.color} transition-all duration-500 ${isVisible ? 'animate-bounce-in' : 'opacity-0'}`}
+              className={`bg-gradient-card border-border hover:border-secondary transition-all duration-500 ${isVisible ? 'animate-bounce-in' : 'opacity-0'}`}
               style={{
                 animationDelay: `${categoryIndex * 0.1}s`
               }}
             >
               <CardHeader className="pb-4">
-                <CardTitle className={`text-center text-${category.color}`}>
-                  {category.title}
+                <CardTitle className="text-center">
+                  <span className="bg-gradient-to-r from-secondary to-tertiary bg-clip-text text-transparent">
+                    {category.title}
+                  </span>
                 </CardTitle>
               </CardHeader>
               <CardContent>
@@ -87,7 +83,7 @@ const Skills = () => {
                   {category.skills.map((skill, skillIndex) => (
                     <span
                       key={skillIndex}
-                      className={`px-3 py-1 text-sm bg-${category.color}/10 text-${category.color} rounded-full border border-${category.color}/30 hover:bg-${category.color} hover:text-${category.color}-foreground transition-all duration-300 cursor-default`}
+                      className="px-3 py-1 text-sm bg-tertiary/10 text-tertiary rounded-full border border-tertiary/30 hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all duration-300 cursor-default"
                     >
                       {skill}
                     </span>
