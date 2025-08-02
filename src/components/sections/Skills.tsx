@@ -8,27 +8,33 @@ const Skills = () => {
   const skillCategories = [
     {
       title: "Programming Languages",
-      skills: ["Python", "R", "SQL", "JavaScript", "Scala"]
+      skills: ["Python", "R", "SQL", "JavaScript", "Scala"],
+      color: "primary"
     },
     {
       title: "Machine Learning",
-      skills: ["TensorFlow", "PyTorch", "Scikit-learn", "Keras", "XGBoost"]
+      skills: ["TensorFlow", "PyTorch", "Scikit-learn", "Keras", "XGBoost"],
+      color: "secondary"
     },
     {
       title: "Data Engineering",
-      skills: ["Apache Spark", "Kafka", "Airflow", "MongoDB", "PostgreSQL"]
+      skills: ["Apache Spark", "Kafka", "Airflow", "MongoDB", "PostgreSQL"],
+      color: "tertiary"
     },
     {
       title: "Cloud & DevOps",
-      skills: ["AWS", "Docker", "Kubernetes", "Terraform", "CI/CD"]
+      skills: ["AWS", "Docker", "Kubernetes", "Terraform", "CI/CD"],
+      color: "primary"
     },
     {
       title: "Data Visualization",
-      skills: ["Matplotlib", "Plotly", "D3.js", "Tableau", "Power BI"]
+      skills: ["Matplotlib", "Plotly", "D3.js", "Tableau", "Power BI"],
+      color: "secondary"
     },
     {
       title: "Tools & Frameworks",
-      skills: ["Git", "Jupyter", "FastAPI", "Flask", "Streamlit"]
+      skills: ["Git", "Jupyter", "FastAPI", "Flask", "Streamlit"],
+      color: "tertiary"
     }
   ];
 
@@ -66,13 +72,13 @@ const Skills = () => {
           {skillCategories.map((category, categoryIndex) => (
             <Card
               key={categoryIndex}
-              className={`bg-gradient-card border-border hover:border-primary transition-all duration-500 ${isVisible ? 'animate-bounce-in' : 'opacity-0'}`}
+              className={`bg-gradient-card border-border hover:border-${category.color} transition-all duration-500 ${isVisible ? 'animate-bounce-in' : 'opacity-0'}`}
               style={{
                 animationDelay: `${categoryIndex * 0.1}s`
               }}
             >
               <CardHeader className="pb-4">
-                <CardTitle className="text-center text-primary">
+                <CardTitle className={`text-center text-${category.color}`}>
                   {category.title}
                 </CardTitle>
               </CardHeader>
@@ -81,7 +87,7 @@ const Skills = () => {
                   {category.skills.map((skill, skillIndex) => (
                     <span
                       key={skillIndex}
-                      className="px-3 py-1 text-sm bg-primary/10 text-primary rounded-full border border-primary/30 hover:bg-primary hover:text-primary-foreground transition-all duration-300 cursor-default"
+                      className={`px-3 py-1 text-sm bg-${category.color}/10 text-${category.color} rounded-full border border-${category.color}/30 hover:bg-${category.color} hover:text-${category.color}-foreground transition-all duration-300 cursor-default`}
                     >
                       {skill}
                     </span>
