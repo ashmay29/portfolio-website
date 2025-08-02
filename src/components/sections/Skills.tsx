@@ -1,6 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import SkillsVisualization from '@/components/effects/SkillsVisualization';
 
 const Skills = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -63,9 +62,36 @@ const Skills = () => {
           </p>
         </div>
 
-        {/* Interactive Skills Visualization */}
-        <div className="max-w-4xl mx-auto">
-          <SkillsVisualization />
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+          {skillCategories.map((category, categoryIndex) => (
+            <Card
+              key={categoryIndex}
+              className={`bg-gradient-card border-border hover:border-secondary transition-all duration-500 ${isVisible ? 'animate-bounce-in' : 'opacity-0'}`}
+              style={{
+                animationDelay: `${categoryIndex * 0.1}s`
+              }}
+            >
+              <CardHeader className="pb-4">
+                <CardTitle className="text-center">
+                  <span className="bg-gradient-to-r from-secondary to-tertiary bg-clip-text text-transparent">
+                    {category.title}
+                  </span>
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="flex flex-wrap justify-center gap-2">
+                  {category.skills.map((skill, skillIndex) => (
+                    <span
+                      key={skillIndex}
+                      className="px-3 py-1 text-sm bg-muted/50 text-muted-foreground rounded-full border border-muted hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all duration-300 cursor-default"
+                    >
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
+          ))}
         </div>
       </div>
     </section>

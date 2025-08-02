@@ -1,16 +1,15 @@
 import { useState, useEffect } from 'react';
 import { ArrowDown, Github, Linkedin, Mail } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import ParticleNetwork from '@/components/effects/ParticleNetwork';
 
 const Hero = () => {
   const [currentTagline, setCurrentTagline] = useState(0);
   
   const taglines = [
-    "I turn data into insights",
-    "I turn data into models", 
-    "I turn data into stories",
-    "I turn data into solutions"
+    "Transforming Data into Insights",
+    "Building Intelligent Systems",
+    "Crafting ML Solutions",
+    "Exploring Data Frontiers"
   ];
 
   useEffect(() => {
@@ -30,9 +29,6 @@ const Hero = () => {
 
   return (
     <section id="hero" className="min-h-screen flex items-center justify-center relative overflow-hidden pt-24">
-      {/* Particle network background */}
-      <ParticleNetwork />
-      
       {/* Background glow effect */}
       <div className="absolute inset-0 bg-gradient-glow opacity-20" />
       

@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { Coffee, Music, Camera, Gamepad2, Heart, Sparkles } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import DataJourney from './DataJourney';
 
 const About = () => {
   const [easterEggRevealed, setEasterEggRevealed] = useState(false);
@@ -131,11 +130,8 @@ const About = () => {
               ))}
             </div>
 
-            {/* Data Science Journey */}
-            <DataJourney />
-
             {/* Call to Action */}
-            <div className="text-center mt-8">
+            <div className="text-center">
               <Button
                 size="lg"
                 className="bg-primary hover:bg-primary-glow text-primary-foreground px-8 py-3 text-lg font-semibold glow transition-all duration-300 hover:scale-105"
