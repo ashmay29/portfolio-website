@@ -60,13 +60,13 @@ const Education = () => {
   }, []);
 
   return (
-    <section id="education" className="py-20 bg-gradient-to-b from-background to-accent/5">
-      <div className="container mx-auto px-6">
-        <div className="text-center mb-16 animate-fade-up">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
+    <section id="education" className="py-12">
+      <div className="px-6">
+        <div className="text-center mb-12 animate-fade-up">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">
             Educational <span className="text-gradient">Background</span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             My academic journey in data science, computer science, and machine learning.
           </p>
         </div>

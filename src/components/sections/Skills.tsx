@@ -62,32 +62,33 @@ const Skills = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
           {skillCategories.map((category, categoryIndex) => (
-            <div
+            <Card
               key={categoryIndex}
-              className={`group ${isVisible ? 'animate-bounce-in' : 'opacity-0'}`}
+              className={`bg-gradient-card border-border hover:border-primary transition-all duration-500 ${isVisible ? 'animate-bounce-in' : 'opacity-0'}`}
               style={{
                 animationDelay: `${categoryIndex * 0.1}s`
               }}
             >
-              <div className="text-center mb-6">
-                <h3 className="text-xl font-semibold text-foreground mb-4 group-hover:text-primary transition-colors duration-200">
+              <CardHeader className="pb-4">
+                <CardTitle className="text-center text-primary">
                   {category.title}
-                </h3>
-              </div>
-              
-              <div className="flex flex-wrap justify-center gap-3">
-                {category.skills.map((skill, skillIndex) => (
-                  <span
-                    key={skillIndex}
-                    className="px-4 py-2 text-sm bg-card/40 backdrop-blur text-muted-foreground rounded-full border border-border/30 hover:border-primary/50 hover:text-primary hover:bg-primary/5 transition-all duration-300 cursor-default"
-                  >
-                    {skill}
-                  </span>
-                ))}
-              </div>
-            </div>
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="flex flex-wrap justify-center gap-2">
+                  {category.skills.map((skill, skillIndex) => (
+                    <span
+                      key={skillIndex}
+                      className="px-3 py-1 text-sm bg-primary/10 text-primary rounded-full border border-primary/30 hover:bg-primary hover:text-primary-foreground transition-all duration-300 cursor-default"
+                    >
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
           ))}
         </div>
       </div>

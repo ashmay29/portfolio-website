@@ -7,9 +7,6 @@ import Experience from './sections/Experience';
 import Education from './sections/Education';
 import About from './sections/About';
 import Contact from './sections/Contact';
-import DynamicGradient from './effects/DynamicGradient';
-
-
 const Portfolio = () => {
   const [activeSection, setActiveSection] = useState('hero');
 
@@ -36,8 +33,8 @@ const Portfolio = () => {
 
   return (
     <div className="min-h-screen bg-background text-foreground relative overflow-x-hidden">
-      {/* Dynamic moving gradient backdrop */}
-      <DynamicGradient />
+      {/* Static powdered gradient backdrop */}
+      <div className="fixed inset-0 bg-gradient-powder opacity-30" />
       
       <Header activeSection={activeSection} />
       
@@ -45,8 +42,13 @@ const Portfolio = () => {
         <Hero />
         <Projects />
         <Skills />
-        <Experience />
-        <Education />
+        
+        {/* Experience and Education side by side */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-7xl mx-auto px-4">
+          <Experience />
+          <Education />
+        </div>
+        
         <About />
         <Contact />
       </main>
