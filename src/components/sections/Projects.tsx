@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Github, ExternalLink, Code, Database, Brain, BarChart3 } from 'lucide-react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -6,6 +6,8 @@ import { Button } from '@/components/ui/button';
 
 const Projects = () => {
   const [hoveredProject, setHoveredProject] = useState<number | null>(null);
+  const [visibleProjects, setVisibleProjects] = useState<number[]>([]);
+  const sectionRef = useRef<HTMLDivElement>(null);
 
   const projects = [
     {
@@ -54,6 +56,25 @@ const Projects = () => {
     }
   ];
 
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const index = parseInt(entry.target.getAttribute('data-index') || '0');
+            setVisibleProjects(prev => [...new Set([...prev, index])]);
+          }
+        });
+      },
+      { threshold: 0.2 }
+    );
+
+    const projectCards = document.querySelectorAll('.project-card');
+    projectCards.forEach(card => observer.observe(card));
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <section id="projects" className="py-20 bg-gradient-to-b from-background to-accent/5">
       <div className="container mx-auto px-6">
@@ -71,9 +92,17 @@ const Projects = () => {
           {projects.map((project, index) => (
             <Card
               key={project.id}
-              className={`group bg-gradient-card border-border card-hover cursor-pointer relative overflow-hidden ${
+              data-index={index}
+              className={`project-card group bg-gradient-card border-border card-hover cursor-pointer relative overflow-hidden transition-all duration-500 ${
                 hoveredProject === index ? 'border-primary shadow-elevated' : ''
+              } ${
+                visibleProjects.includes(index) 
+                  ? 'opacity-100 translate-y-0' 
+                  : 'opacity-0 translate-y-8'
               }`}
+              style={{
+                transitionDelay: `${index * 150}ms`
+              }}
               onMouseEnter={() => setHoveredProject(index)}
               onMouseLeave={() => setHoveredProject(null)}
             >
