@@ -33,8 +33,8 @@ const Portfolio = () => {
 
   return (
     <div className="min-h-screen bg-background text-foreground relative overflow-x-hidden">
-      {/* Static powdered gradient backdrop */}
-      <div className="fixed inset-0 bg-gradient-powder opacity-30" />
+      {/* Uniform powdered gradient backdrop */}
+      <div className="fixed inset-0 bg-gradient-powder-uniform opacity-40" />
       
       <Header activeSection={activeSection} />
       
@@ -42,13 +42,8 @@ const Portfolio = () => {
         <Hero />
         <Projects />
         <Skills />
-        
-        {/* Experience and Education side by side */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-7xl mx-auto px-4">
-          <Experience />
-          <Education />
-        </div>
-        
+        <Experience />
+        <Education />
         <About />
         <Contact />
       </main>
