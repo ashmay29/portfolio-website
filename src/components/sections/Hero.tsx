@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { ArrowDown, Github, Linkedin, Mail } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { TerminalCommand } from '@/components/common/TerminalCommand';
 
 const Hero = () => {
   const [currentTagline, setCurrentTagline] = useState(0);
@@ -41,40 +42,55 @@ const Hero = () => {
               Aanshuvi Shah
             </span>
           </h1>
-          
-          {/* Dynamic tagline */}
-          <div className="h-16 mb-8 flex items-center justify-center">
-            <p className="text-xl md:text-2xl text-muted-foreground animate-fade-up">
-              <span key={currentTagline} className="animate-bounce-in">
-                {taglines[currentTagline]}
-              </span>
-            </p>
+
+          {/* Quick Start pseudo-terminal */}
+          <div className="mx-auto max-w-3xl space-y-4 text-left">
+            <h3 className="text-center text-2xl font-bold mb-2">{/* */}
+              <span className="align-middle">&lt;/&gt; Quick Start</span>
+            </h3>
+            <TerminalCommand
+              command="$ whoami"
+              output="Full-Stack Developer passionate about creating efficient, scalable solutions"
+              delay={0.1}
+            />
+            <TerminalCommand
+              command="$ ls skills/"
+              output="React TypeScript Node.js Python PostgreSQL AWS Docker"
+              delay={0.2}
+            />
+            <TerminalCommand
+              command="$ cat experience.txt"
+              output="2+ years building web applications and leading technical projects"
+              delay={0.3}
+            />
+            <TerminalCommand
+              command="$ echo $GOALS"
+              output="Design delightful, performant user experiences powered by data and automation"
+              delay={0.4}
+            />
           </div>
           
           {/* Description */}
-          <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto mb-12 leading-relaxed animate-fade-up">
-            Data Science & Machine Learning student passionate about leveraging AI to solve real-world problems. 
-          </p>
+        </div>
+
+        {/* CTA Buttons */}
+        <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center items-center mb-16 animate-fade-up">
+          <Button 
+            onClick={scrollToProjects}
+            size="lg"
+            className="group bg-primary hover:bg-primary-glow text-primary-foreground px-8 py-3 text-lg font-semibold transition-all duration-300 hover:scale-105"
+          >
+            View My Work
+            <ArrowDown className="ml-2 w-5 h-5 group-hover:animate-bounce" />
+          </Button>
           
-          {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16 animate-fade-up">
-            <Button 
-              onClick={scrollToProjects}
-              size="lg"
-              className="group bg-primary hover:bg-primary-glow text-primary-foreground px-8 py-3 text-lg font-semibold transition-all duration-300 hover:scale-105"
-            >
-              View My Work
-              <ArrowDown className="ml-2 w-5 h-5 group-hover:animate-bounce" />
-            </Button>
-            
-            <Button 
-              variant="outline" 
-              size="lg"
-              className="border-primary text-primary hover:bg-primary hover:text-primary-foreground px-8 py-3 text-lg font-semibold transition-all duration-300 hover:scale-105"
-            >
-              Download Resume
-            </Button>
-          </div>
+          <Button 
+            variant="outline" 
+            size="lg"
+            className="border-primary text-primary bg-primary text-primary-foreground px-8 py-3 text-lg font-semibold transition-all duration-300 hover:scale-105"
+          >
+            Download Resume
+          </Button>
         </div>
       </div>
     </section>

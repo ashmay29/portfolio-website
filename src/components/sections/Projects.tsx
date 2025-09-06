@@ -146,7 +146,7 @@ const Projects = () => {
           <Button
             size="lg"
             variant="outline"
-            className="border-primary text-primary hover:bg-primary hover:text-primary-foreground px-8 py-3 text-lg font-semibold transition-all duration-300 hover:scale-105"
+            className="border-primary text-primary bg-primary text-primary-foreground px-8 py-3 text-lg font-semibold transition-all duration-300 hover:scale-105"
           >
             View All Projects
             <ExternalLink className="ml-2 w-5 h-5" />
