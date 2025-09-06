@@ -50,7 +50,7 @@ const Skills = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} id="skills" className="py-20 relative">
+    <section ref={sectionRef} id="skills" className="pt-24 pb-0 relative">
       <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-16 animate-fade-up">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
@@ -72,10 +72,8 @@ const Skills = () => {
               }}
             >
               <CardHeader className="pb-4">
-                <CardTitle className="text-center">
-                  <span className="bg-gradient-to-r from-secondary to-tertiary bg-clip-text text-transparent">
-                    {category.title}
-                  </span>
+                <CardTitle className="text-center text-foreground">
+                  {category.title}
                 </CardTitle>
               </CardHeader>
               <CardContent>
@@ -83,7 +81,7 @@ const Skills = () => {
                   {category.skills.map((skill, skillIndex) => (
                     <span
                       key={skillIndex}
-                      className="px-3 py-1 text-sm bg-muted/50 text-muted-foreground rounded-full border border-muted hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all duration-300 cursor-default"
+                      className="px-3 py-1 text-sm bg-muted/50 text-foreground rounded-full border border-muted hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all duration-300 cursor-default"
                     >
                       {skill}
                     </span>

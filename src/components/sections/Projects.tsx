@@ -55,8 +55,9 @@ const Projects = () => {
   ];
 
   return (
-    <section id="projects" className="py-20 bg-gradient-to-b from-background to-accent/5">
+    <section id="projects" className="py-0">
       <div className="container mx-auto px-6">
+
         <div className="text-center mb-16 animate-fade-up">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
             Featured <span className="text-gradient">Projects</span>

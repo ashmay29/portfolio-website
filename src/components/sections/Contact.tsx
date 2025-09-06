@@ -16,21 +16,21 @@ const Contact = () => {
       icon: <Linkedin className="w-6 h-6" />,
       url: 'https://linkedin.com/in/alexchen',
       description: 'Connect with me professionally',
-      color: 'hover:text-blue-400'
+      color: 'hover:text-gray-400'
     },
     {
       name: 'Email',
       icon: <Mail className="w-6 h-6" />,
       url: 'mailto:alex.chen@example.com',
       description: 'Drop me a line',
-      color: 'hover:text-primary'
+      color: 'hover:text-gray-400'
     },
     {
       name: 'Twitter',
       icon: <Twitter className="w-6 h-6" />,
       url: 'https://twitter.com/alexchen_ds',
       description: 'Follow my data science journey',
-      color: 'hover:text-sky-400'
+      color: 'hover:text-gray-400'
     }
   ];
 
@@ -50,7 +50,7 @@ const Contact = () => {
   ];
 
   return (
-    <section id="contact" className="py-20 bg-gradient-to-b from-background to-accent/10">
+    <section id="contact" className="py-0">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16 animate-fade-up">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">

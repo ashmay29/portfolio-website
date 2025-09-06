@@ -6,32 +6,32 @@
 
 @layer base {
   :root {
-    /* Dark Theme Base Colors - More Black */
+    /* Dark Theme Base Colors - Black background, WHITE text */
     --background: 0 0% 4%;
-    --foreground: 0 0% 83%;
+    --foreground: 0 0% 98%;
     
     /* Card and Surface Colors */
     --card: 0 0% 6%;
-    --card-foreground: 0 0% 83%;
+    --card-foreground: 0 0% 98%;
     
     /* Interactive Elements */
     --popover: 0 0% 8%;
-    --popover-foreground: 0 0% 88%;
+    --popover-foreground: 0 0% 98%;
     
-    /* Brand Colors - Teal Primary */
-    --primary: 180 85% 55%;
-    --primary-foreground: 220 13% 8%;
-    --primary-glow: 180 65% 65%;
+    /* Action/Brand Colors - Dark Gray buttons with white text */
+    --primary: 0 0% 26%;
+    --primary-foreground: 0 0% 98%;
+    --primary-glow: 0 0% 36%;
     
-    /* Secondary Purple Accent */
-    --secondary: 260 80% 65%;
-    --secondary-foreground: 220 13% 8%;
-    --secondary-glow: 260 60% 75%;
+    /* Secondary Accent - mid gray */
+    --secondary: 0 0% 40%;
+    --secondary-foreground: 0 0% 98%;
+    --secondary-glow: 0 0% 48%;
     
-    /* Tertiary Powder Blue */
-    --tertiary: 200 75% 60%;
-    --tertiary-foreground: 220 13% 8%;
-    --tertiary-glow: 200 55% 70%;
+    /* Tertiary - lighter gray */
+    --tertiary: 0 0% 55%;
+    --tertiary-foreground: 0 0% 10%;
+    --tertiary-glow: 0 0% 62%;
     
     /* Muted Elements */
     --muted: 0 0% 12%;
@@ -41,38 +41,38 @@
     --accent: 0 0% 15%;
     --accent-foreground: 0 0% 88%;
     
-    /* Status Colors */
-    --destructive: 0 75% 60%;
+    /* Status Colors - Grayscale */
+    --destructive: 0 0% 35%;
     --destructive-foreground: 0 0% 98%;
-    --success: 142 76% 36%;
-    --warning: 38 92% 50%;
+    --success: 0 0% 60%;
+    --warning: 0 0% 70%;
     
     /* Borders and Inputs */
     --border: 0 0% 18%;
     --input: 0 0% 12%;
-    --ring: 180 100% 50%;
+    --ring: 0 0% 60%;
     
     /* Design System Tokens */
     --radius: 0.75rem;
     
-    /* Custom Gradients */
-    --gradient-hero: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--secondary)) 100%);
+    /* Custom Gradients - Dark Gray tones for subtle depth */
+    --gradient-hero: linear-gradient(135deg, hsl(0 0% 26%) 0%, hsl(0 0% 40%) 60%, hsl(0 0% 55%) 100%);
     --gradient-card: linear-gradient(145deg, hsl(var(--card)) 0%, hsl(0 0% 8%) 100%);
     --gradient-glow: radial-gradient(circle at center, hsl(var(--primary) / 0.3) 0%, transparent 70%);
     --gradient-accent: radial-gradient(ellipse at top, hsl(var(--primary) / 0.2) 0%, transparent 50%);
     --gradient-dots: radial-gradient(circle at 1px 1px, hsl(var(--primary) / 0.15) 1px, transparent 0);
     --gradient-strokes: conic-gradient(from 0deg at 50% 50%, hsl(var(--primary) / 0.1) 0deg, hsl(var(--tertiary) / 0.15) 120deg, hsl(var(--secondary) / 0.1) 240deg, hsl(var(--primary) / 0.1) 360deg);
     
-    /* Uniform Powdered Gradient Background - Blue + Teal + Light Purple */
+    /* Uniform Powdered Gradient Background - Grayscale */
     --gradient-powder-uniform: 
-      radial-gradient(ellipse 1400px 900px at 10% 20%, hsl(190 100% 50% / 0.15) 0%, transparent 50%),
-      radial-gradient(ellipse 1200px 800px at 90% 80%, hsl(180 85% 55% / 0.12) 0%, transparent 50%),
-      radial-gradient(ellipse 1000px 700px at 50% 50%, hsl(260 60% 70% / 0.08) 0%, transparent 50%),
-      radial-gradient(ellipse 800px 600px at 20% 70%, hsl(200 90% 60% / 0.1) 0%, transparent 50%),
-      radial-gradient(ellipse 600px 500px at 80% 30%, hsl(170 70% 50% / 0.09) 0%, transparent 50%);
+      radial-gradient(ellipse 1400px 900px at 10% 20%, hsl(0 0% 50% / 0.15) 0%, transparent 50%),
+      radial-gradient(ellipse 1200px 800px at 90% 80%, hsl(0 0% 55% / 0.12) 0%, transparent 50%),
+      radial-gradient(ellipse 1000px 700px at 50% 50%, hsl(0 0% 70% / 0.08) 0%, transparent 50%),
+      radial-gradient(ellipse 800px 600px at 20% 70%, hsl(0 0% 60% / 0.1) 0%, transparent 50%),
+      radial-gradient(ellipse 600px 500px at 80% 30%, hsl(0 0% 50% / 0.09) 0%, transparent 50%);
     
     /* Shadows */
-    --shadow-glow: 0 0 40px hsl(var(--primary) / 0.3);
+    --shadow-glow: 0 0 40px hsl(0 0% 26% / 0.35);
     --shadow-card: 0 8px 32px hsl(0 0% 2% / 0.6);
     --shadow-elevated: 0 16px 48px hsl(0 0% 2% / 0.8);
     
@@ -82,19 +82,19 @@
 
     --sidebar-background: 0 0% 98%;
 
-    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-foreground: 0 0% 26.1%;
 
-    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary: 0 0% 10%;
 
     --sidebar-primary-foreground: 0 0% 98%;
 
-    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent: 0 0% 95.9%;
 
-    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-accent-foreground: 0 0% 10%;
 
-    --sidebar-border: 220 13% 91%;
+    --sidebar-border: 0 0% 91%;
 
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-ring: 0 0% 60%;
   }
 }
 
@@ -163,11 +163,26 @@
 }
 
 @layer base {
+  /* Grain overlay for the cursor gradient container */
+  .gradient-container {
+    position: relative;
+    isolation: isolate;
+  }
+
+  .gradient-container::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800"><filter id="noise"><feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/></filter><rect width="100%" height="100%" filter="url(%23noise)"/></svg>');
+    opacity: 0.1;
+    pointer-events: none;
+  }
   * {
     @apply border-border;
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans;
   }
 }
